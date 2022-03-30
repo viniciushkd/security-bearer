@@ -6,11 +6,6 @@ orbs:
 
 jobs:
   build:
-    branches:
-      only:
-        - dev
-      ignore:
-        - feature/*
     docker:
       - image: cimg/openjdk:17.0.2
     steps:

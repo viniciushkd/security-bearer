@@ -48,7 +48,7 @@ curl --location --request POST 'http://127.0.0.1:8080/api/v1/user' \
 ### GET /api/v1/user
 List users. (*Inform the Bearer Token in the Key Authorization.*)
 ```
-curl --location --request GET 'http://localhost:8080/api/v1/user' \
+curl --location --request GET 'http://127.0.0.1:8080/api/v1/user' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: {Bearer Token}' \
 --header 'Cookie: JSESSIONID=640B4F20A4AC75966DF2A0324A759017'

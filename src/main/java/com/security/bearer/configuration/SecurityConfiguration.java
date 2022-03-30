@@ -2,6 +2,7 @@ package com.security.bearer.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -37,9 +38,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(HttpSecurity httpSecurity) throws Exception {
 		this.loginFilter.setAuthenticationManager(authenticationManager());
-		httpSecurity.csrf().disable()
-				.addFilterBefore(this.loginFilter, UsernamePasswordAuthenticationFilter.class)
-				.addFilterBefore(this.authenticationFilter, UsernamePasswordAuthenticationFilter.class);
+		httpSecurity.csrf().disable().authorizeRequests()
+			.antMatchers("/api/v1/user").hasRole("ADMIN")
+			.antMatchers("/api/v1/user/*").hasRole("ADMIN")
+			.antMatchers(HttpMethod.POST, "/api/v1/login")
+			.permitAll().anyRequest().authenticated().and()
+			.addFilterBefore(this.loginFilter, UsernamePasswordAuthenticationFilter.class)
+			.addFilterBefore(this.authenticationFilter, UsernamePasswordAuthenticationFilter.class);
 		httpSecurity.cors();
 
 	}

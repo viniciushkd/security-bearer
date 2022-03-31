@@ -23,10 +23,12 @@ INSERT INTO user_roles (usr_id ,role_id) VALUES (1, 2);
 ### POST /api/v1/login
 Bearer Token returns in response Header in key Authorization.
 ```
-curl --location --request POST 'http://127.0.0.1:8080/api/v1/login' \
---header 'Content-Type: application/json' \
---header 'Cookie: JSESSIONID=43DB8BC7765879805DAE48D9F127FEFB' \
---data-raw '{
+curl -v -X POST \
+  http://127.0.0.1:8080/api/v1/login \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -H 'postman-token: 876e687a-25e0-833a-934f-9342db4f23e3' \
+  -d '{
     "username": "admin",
     "password": "admin"
 }'
@@ -34,11 +36,13 @@ curl --location --request POST 'http://127.0.0.1:8080/api/v1/login' \
 ### POST /api/v1/user
 Add a new user. (*Inform the Bearer Token in the Key Authorization.*)
 ```
-curl --location --request POST 'http://127.0.0.1:8080/api/v1/user' \
---header 'Content-Type: application/json' \
---header 'Authorization: {Bearer Token}' \
---header 'Cookie: JSESSIONID=43DB8BC7765879805DAE48D9F127FEFB' \
---data-raw '{
+curl -v -X POST \
+  http://127.0.0.1:8080/api/v1/user \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -H 'Authorization: {Bearer Token}' \
+  -H 'postman-token: 876e687a-25e0-833a-934f-9342db4f23e3' \
+  -d '{
     "dto": {
         "username": "user1",
         "password": "user1"
@@ -48,16 +52,20 @@ curl --location --request POST 'http://127.0.0.1:8080/api/v1/user' \
 ### GET /api/v1/user
 List users. (*Inform the Bearer Token in the Key Authorization.*)
 ```
-curl --location --request GET 'http://127.0.0.1:8080/api/v1/user' \
---header 'Content-Type: application/json' \
---header 'Authorization: {Bearer Token}' \
---header 'Cookie: JSESSIONID=640B4F20A4AC75966DF2A0324A759017'
+curl -v -X GET \
+  http://127.0.0.1:8080/api/v1/user \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -H 'Authorization: {Bearer Token}' \
+  -H 'postman-token: 876e687a-25e0-833a-934f-9342db4f23e3'
 ```
 ### GET /api/v1/user/{uid}
 Get user. (*Inform the Bearer Token in the Key Authorization.*)
 ```
-curl --location --request GET 'http://127.0.0.1:8080/api/v1/user/{uid}' \
---header 'Content-Type: application/json' \
---header 'Authorization: {Bearer Token}' \
---header 'Cookie: JSESSIONID=43DB8BC7765879805DAE48D9F127FEFB'
+curl -v -X GET \
+  http://127.0.0.1:8080/api/v1/user/{uid} \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -H 'Authorization: {Bearer Token}' \
+  -H 'postman-token: 876e687a-25e0-833a-934f-9342db4f23e3'
 ```

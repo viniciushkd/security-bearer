@@ -2,7 +2,7 @@
 
 ## Docker
 ```
-docker pull viniciushkd/bearer:dev
+docker pull viniciushkd/security_bearer
 ```
 ## Database
 Access h2DB: http://127.0.0.1:8080/h2

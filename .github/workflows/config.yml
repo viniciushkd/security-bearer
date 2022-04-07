@@ -31,4 +31,4 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_REPO }}/${{ secrets.DOCKER_IMAGE }}:${{ secrets.DOCKER_TAG }}_ghaction
+        tags: ${{ secrets.DOCKER_REPO }}/${{ secrets.DOCKER_IMAGE }}:ghaction_${{ secrets.DOCKER_TAG }}

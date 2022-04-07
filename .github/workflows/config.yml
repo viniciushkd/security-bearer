@@ -32,4 +32,4 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_REPO }}/${{ secrets.DOCKER_IMAGE }}:${GITHUB_HEAD_REF}
+        tags: ${{ secrets.DOCKER_REPO }}/${{ secrets.DOCKER_IMAGE }}:$GITHUB_HEAD_REF

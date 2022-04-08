@@ -1,9 +1,13 @@
 # Security Bearer
 
 ## Docker
+### Upload with Circle CI
 ```
-Upload with Circle CI: docker pull viniciushkd/security_bearer:dev_circleci
-Upload with GitHub Action: docker pull viniciushkd/security_bearer:dev_ghaction
+docker pull viniciushkd/security_bearer:dev_circleci
+```
+### Upload with GitHub Action
+```
+docker pull viniciushkd/security_bearer:dev_ghaction
 ```
 ## Database
 Access h2DB: http://127.0.0.1:8080/h2

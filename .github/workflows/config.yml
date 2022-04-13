@@ -23,10 +23,10 @@ jobs:
         MYSQL_USER: ${{ secrets.MYSQL_USER }}
         MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
       run: |
-          export MYSQL_URL = $MYSQL_URL
-          export MYSQL_DATABASE = $MYSQL_DATABASE
-          export MYSQL_USER = $MYSQL_USER
-          export MYSQL_PASSWORD = $MYSQL_PASSWORD
+          export MYSQL_URL=$MYSQL_URL
+          export MYSQL_DATABASE=$MYSQL_DATABASE
+          export MYSQL_USER=$MYSQL_USER
+          export MYSQL_PASSWORD=$MYSQL_PASSWORD
     - name: Build with Maven
       run: mvn clean package
     - name: Login to Docker Hub

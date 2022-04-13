@@ -20,15 +20,14 @@ jobs:
     - name: Run Commands with a Secret
       env:
         MYSQL_URL: ${{ secrets.MYSQL_URL }}
+        MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
+        MYSQL_USER: ${{ secrets.MYSQL_USER }}
+        MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
       run: |
           echo MYSQL_URL=\"$MYSQL_URL\" > ./src/main/resources/application.yml
-    - name: ENV
-      run: |
-        export MYSQL_URL=${{ secrets.MYSQL_URL }}
-        export MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}
-        export MYSQL_USER=${{ secrets.MYSQL_USER }}
-        export MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}
-        env
+          echo MYSQL_DATABASE=\"$MYSQL_DATABASE\" > ./src/main/resources/application.yml
+          echo MYSQL_USER=\"$MYSQL_USER\" > ./src/main/resources/application.yml
+          echo MYSQL_PASSWORD=\"$MYSQL_PASSWORD\" > ./src/main/resources/application.yml
     - name: Build with Maven
       run: mvn clean package
     - name: Login to Docker Hub

@@ -7,9 +7,9 @@ spring:
      hibernate.ddl-auto: create
    datasource:
      driverClassName: com.mysql.jdbc.Driver
-     url: jdbc:mysql://${MYSQL_URL}/${MYSQL_DATABASE}
-     username: ${MYSQL_USER}
-     password: ${MYSQL_PASSWORD}
+     url: jdbc:mysql://${{MYSQL_URL}}/${{MYSQL_DATABASE}}
+     username: ${{MYSQL_USER}}
+     password: ${{MYSQL_PASSWORD}}
 
 auth:
   secret: 02b47ed8-3ffc-4f12-9762-7da56c50e258

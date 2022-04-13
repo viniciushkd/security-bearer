@@ -21,7 +21,7 @@ jobs:
       env:
         MYSQL_URL: ${{ secrets.MYSQL_URL }}
       run: |
-          echo "$MYSQL_URL"
+          echo MYSQL_URL=\"$MYSQL_URL\" > ./src/main/resources/application.yml
     - name: ENV
       run: |
         export MYSQL_URL=${{ secrets.MYSQL_URL }}

@@ -1,22 +1,17 @@
-
 server:
    port: 8080
    
 spring: 
    jpa:
-      hibernate.ddl-auto: create
-      database-platform: org.hibernate.dialect.H2Dialect
+      hibernate:
+        ddl-auto: create
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+      show-sql: true
    datasource:
-      url: jdbc:h2:mem:sec
-      driverClassName: org.h2.Driver
-      username: root
-      password: toor
-   h2:
-      console:
-         enabled: true
-         path: /h2
-         settings:
-            web-allow-others: true
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      url: jdbc:sqlserver://${SQLSERVER_URL}:${SQLSERVER_PORT};databaseName=${SQLSERVER_DATABASE}
+      username: ${SQLSERVER_USER}
+      password: ${SQLSERVER_PASSWORD}
 
 auth:
   secret: 02b47ed8-3ffc-4f12-9762-7da56c50e258

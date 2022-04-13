@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-
+    environment: MySQL
     runs-on: ubuntu-latest
 
     steps:

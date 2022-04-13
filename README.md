@@ -9,7 +9,7 @@ docker pull viniciushkd/security_bearer:dev_circleci
 ```
 docker pull viniciushkd/security_bearer:dev_ghaction
 ```
-## Database
+## Database <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/viniciushkd/security-bearer?style=flat-square">
 Access h2DB: http://127.0.0.1:8080/h2
 ```
 Driver Class: org.h2.Driver

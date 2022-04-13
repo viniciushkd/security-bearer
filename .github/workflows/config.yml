@@ -16,6 +16,12 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
+    
+    - name: Run Commands with a Secret
+      env:
+        MYSQL_URL: ${{ secrets.MYSQL_URL }}
+      run: |
+          echo "$MYSQL_URL
     - name: ENV
       run: |
         export MYSQL_URL=${{ secrets.MYSQL_URL }}

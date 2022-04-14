@@ -6,7 +6,6 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.stereotype.Component;
 
 import com.security.bearer.component.Encrypt;
@@ -40,13 +39,15 @@ public class UserBusiness {
 		}
 	}
 
-	public UserRDTO getUser(String uidUser) throws NotFoundException {
-		final Optional<User> optional = userRepository.findByUid(uidUser);
-		if (optional.isEmpty()) {
-			throw new NotFoundException();
+	public UserRDTO getUser(String uidUser) {
+		Optional<User> optional = userRepository.findByUid(uidUser);
+		if (optional.isPresent()) {
+			return optional.map(user -> new UserRDTO(user.getUser(), user.getUid(), user.getRoles().isEmpty() ? null
+					: user.getRoles().stream().map(roles -> new RoleDTO(roles.getName())).collect(Collectors.toList())))
+					.get();
+		} else {
+			return new UserRDTO("", "", null);
 		}
-		return optional.map(user -> new UserRDTO(user.getUser(), user.getUid(),
-				user.getRoles().stream().map(roles -> new RoleDTO(roles.getName())).collect(Collectors.toList()))) .get();
 	}
 
 	public List<UserRDTO> listUser() {

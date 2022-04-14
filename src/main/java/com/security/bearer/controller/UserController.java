@@ -3,6 +3,7 @@ package com.security.bearer.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,8 +33,14 @@ public class UserController {
 	
 	@GetMapping("/user/{uidUser}")
 	public ResponseEntity<ResponseDTO<UserRDTO>> getUser(@PathVariable String uidUser) {
-		UserRDTO user = business.getUser(uidUser);
-		return new ResponseEntity<>(new ResponseDTO<UserRDTO>(user), HttpStatus.OK);
+		UserRDTO user;
+		try {
+			user = business.getUser(uidUser);
+			return new ResponseEntity<>(new ResponseDTO<UserRDTO>(user), HttpStatus.OK);
+		} catch (NotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	@GetMapping("/user")

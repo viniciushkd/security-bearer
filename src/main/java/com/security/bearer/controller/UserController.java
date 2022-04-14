@@ -20,22 +20,23 @@ import com.security.bearer.dto.UserRDTO;
 @RestController
 @RequestMapping("/api/v1")
 public class UserController {
-	
+
 	@Autowired
 	private UserBusiness business;
-	
+
 	@PostMapping("/user")
 	public ResponseEntity<ResponseDTO<?>> newUser(@RequestBody ResponseDTO<UserDTO> dto) {
 		business.saveUser(dto.getDto().getUsername(), dto.getDto().getPassword());
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/user/{uidUser}")
 	public ResponseEntity<ResponseDTO<UserRDTO>> getUser(@PathVariable String uidUser) {
-		UserRDTO user = business.getUser(uidUser);
+		UserRDTO user;
+		user = business.getUser(uidUser);
 		return new ResponseEntity<>(new ResponseDTO<UserRDTO>(user), HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/user")
 	public ResponseEntity<ResponseDTO<List<UserRDTO>>> listUsers() {
 		List<UserRDTO> users = business.listUser();

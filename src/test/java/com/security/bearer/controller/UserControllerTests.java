@@ -1,5 +1,6 @@
 package com.security.bearer.controller;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -21,6 +22,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
 import com.security.bearer.component.Encrypt;
+import com.security.bearer.dto.UserDTO;
 import com.security.bearer.repository.RoleRepository;
 import com.security.bearer.repository.UserRepository;
 import com.security.bearer.repository.data.ERole;
@@ -44,6 +46,7 @@ public class UserControllerTests {
 
 	final static String UID = UUID.randomUUID().toString();
 	String headerValue = "";
+	UserDTO dto;
 
 	@Before
 	public void insertData() throws Exception {
@@ -57,6 +60,7 @@ public class UserControllerTests {
 						+ "    \"password\": \"admin\"\r\n"
 						+ "}")).andReturn();
 		headerValue = mvcResult.getResponse().getHeader("Authorization");
+		dto = new UserDTO("admin", "admin");
 
 	}
 	
@@ -98,6 +102,12 @@ public class UserControllerTests {
 		this.mockMvc.perform(
 				get("/api/v1/user").header("Authorization", headerValue).contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk());
+	}
+	
+	@Test
+	public void testUserDTO() {
+		assertThat(dto.getUsername()).isEqualTo("admin");
+		assertThat(dto.getPassword()).isEqualTo("admin");
 	}
 
 }

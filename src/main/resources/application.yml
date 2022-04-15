@@ -4,7 +4,7 @@ server:
    
 spring: 
    jpa:
-     hibernate.ddl-auto: create
+     hibernate.ddl-auto: update
    datasource:
      driver-class-name: com.mysql.jdbc.Driver
      url: jdbc:mysql://${MYSQL_URL}/${MYSQL_DATABASE}

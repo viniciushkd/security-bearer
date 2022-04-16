@@ -16,7 +16,7 @@ jobs:
       - run: 
           name: Run Maven Package
           command: |
-            mvn clean -DskipTests=true -Ddev package
+            mvn clean -P test package
       - run:
           name: Docker Build
           command: |

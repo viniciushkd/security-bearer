@@ -12,6 +12,8 @@ docker pull viniciushkd/security_bearer:dev_ghaction
 ## Database 
 <a href="https://github.com/viniciushkd/security-bearer/tree/1.0"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/viniciushkd/security-bearer?style=flat-square"></a> 
 
+Only on release 1.0 or set profile 'test'
+
 Access h2DB: http://127.0.0.1:8080/h2  
 ```
 Driver Class: org.h2.Driver

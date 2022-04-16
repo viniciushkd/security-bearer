@@ -1,13 +1,13 @@
 # Security Bearer
 
 ## Docker
-### Upload with Circle CI
+### Image run on Database MySQL
 ```
-docker pull viniciushkd/security_bearer:dev_circleci
+docker pull viniciushkd/security_bearer:dev_mysql
 ```
-### Upload with GitHub Action
+### Image run on Database SQL Server
 ```
-docker pull viniciushkd/security_bearer:dev_ghaction
+docker pull viniciushkd/security_bearer:dev_sqlserver
 ```
 ## Database 
 <a href="https://github.com/viniciushkd/security-bearer/tree/1.0"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/viniciushkd/security-bearer?style=flat-square"></a> 

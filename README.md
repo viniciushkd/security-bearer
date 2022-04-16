@@ -5,9 +5,15 @@
 ```
 docker pull viniciushkd/security_bearer:dev_mysql
 ```
+```
+docker run -d -t -i -e MYSQL_URL=variable -e MYSQL_DATABASE=variable -e MYSQL_USER=variable -e MYSQL_PASSWORD=variable -p 8080:8080 viniciushkd/security_bearer:dev_mysql .
+```
 ### Image run on Database SQL Server
 ```
 docker pull viniciushkd/security_bearer:dev_sqlserver
+```
+```
+docker run -d -t -i -e SQLSERVER_URL=variable -e SQLSERVER_PORT=variable -e SQLSERVER_DATABASE=variable -e SQLSERVER_USER=variable -e SQLSERVER_PASSWORD=variable -p 8080:8080 viniciushkd/security_bearer:dev_sqlserver .
 ```
 ## Database 
 <a href="https://github.com/viniciushkd/security-bearer/tree/1.0"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/viniciushkd/security-bearer?style=flat-square"></a> 

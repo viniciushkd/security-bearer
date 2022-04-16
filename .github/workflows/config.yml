@@ -17,7 +17,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn clean -Ddev -DskipTests=true package
+      run: mvn clean package -P test
     - name: Login to Docker Hub
       uses: docker/login-action@v1
       with:

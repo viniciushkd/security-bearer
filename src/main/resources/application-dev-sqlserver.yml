@@ -1,0 +1,19 @@
+spring: 
+  server:
+    port: 8080
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://${SQLSERVER_URL}:${SQLSERVER_PORT};databaseName=${SQLSERVER_DATABASE}
+    username: ${SQLSERVER_USER}
+    password: ${SQLSERVER_PASSWORD}
+  config:
+    activate:
+      on-profile: dev-sqlserver
+
+auth:
+  secret: 02b47ed8-3ffc-4f12-9762-7da56c50e258
+  tokenPrefix: Bearer
+  header: Authorization

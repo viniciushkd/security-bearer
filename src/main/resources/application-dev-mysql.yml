@@ -2,7 +2,8 @@ spring:
   server:
     port: 8080
   jpa:
-    hibernate.ddl-auto: update
+    hibernate:
+      ddl-auto: update
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://${MYSQL_URL}/${MYSQL_DATABASE}
@@ -10,7 +11,7 @@ spring:
     password: ${MYSQL_PASSWORD}
   config:
     activate:
-      on-profile: dev
+      on-profile: dev-mysql
 
 auth:
   secret: 02b47ed8-3ffc-4f12-9762-7da56c50e258

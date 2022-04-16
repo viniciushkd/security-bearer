@@ -22,6 +22,29 @@
 		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
 		<sonar.language>java</sonar.language>
 	</properties>
+	<profiles>
+		<profile>
+			<id>dev-sqlserver</id>
+			<properties>
+				<activatedProperties>dev-sqlserver</activatedProperties>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>dev-mysql</id>
+			<properties>
+				<activatedProperties>dev-mysql</activatedProperties>
+			</properties>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<activatedProperties>test</activatedProperties>
+			</properties>
+		</profile>
+	</profiles>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

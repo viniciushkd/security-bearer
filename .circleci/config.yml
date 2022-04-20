@@ -13,6 +13,7 @@ jobs:
       - checkout
       - run: java --version
       - run: mvn --version
+      - run: echo ${GITHUB_BASE_REF##*/} 
       - run: 
           name: Run Maven Package
           command: |

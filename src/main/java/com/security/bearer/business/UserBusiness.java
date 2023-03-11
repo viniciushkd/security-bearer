@@ -1,6 +1,5 @@
 package com.security.bearer.business;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -44,13 +43,8 @@ public class UserBusiness {
 		Optional<User> optional = userRepository.findByUid(uidUser);
 		if (optional.isPresent()) {
 			User user = optional.get();
-			List<Role> roles = null;
-			if (user.getRoles().isEmpty()) {
-				roles = user.getRoles();
-			} else {
-				roles = new ArrayList<Role>();
-			}
-			return new UserRDTO(user.getUser(), user.getUid(), roles.stream().map(role -> new RoleDTO(role.getName())).collect(Collectors.toList()));
+			return new UserRDTO(user.getUser(), user.getUid(), user.getRoles().isEmpty() ? null
+					: user.getRoles().stream().map(role -> new RoleDTO(role.getName())).collect(Collectors.toList()));
 		} else {
 			return new UserRDTO("", "", null);
 		}

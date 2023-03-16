@@ -155,11 +155,11 @@
 			</plugin>
 		</plugins>
 	</build>
-		<distributionManagement>
+	<distributionManagement>
 		<repository>
-		  <id>mvn-repo</id>
-		  <name>Security Bearer Package</name>
-		  <url>https://maven.pkg.github.com/viniciushkd/security-bearer</url>
+			<id>mvn-repo</id>
+			<name>Security Bearer Package</name>
+			<url>https://maven.pkg.github.com/viniciushkd/security-bearer</url>
 		</repository>
 	 </distributionManagement>
 
